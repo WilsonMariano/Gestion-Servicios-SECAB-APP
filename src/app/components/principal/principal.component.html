@@ -1,0 +1,240 @@
+<!-- Buscador -->
+<div class="row align-items-center text-center bg">
+  <div class="col-md-5 col-sm-12 offset-sm-4">
+    <h2 class="text-center mb-5">¿Qué servicio querés buscar?</h2>
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Comience a escribir un nombre, apellido, oficina o piso..." (keyup)="onKeyPress()">
+      <div class="input-group-prepend">
+        <div class="input-group-text" id="btnGroupAddon2">
+          <i class="fas fa-search"></i>
+        </div>
+      </div>
+    </div>
+    <div class="form-check form-check-inline mt-3">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="nombre">
+      <label class="form-check-label" for="inlineRadio1">Empresa</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="oficina">
+      <label class="form-check-label" for="inlineRadio2">Dirección</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="piso">
+      <label class="form-check-label" for="inlineRadio3">Vencimiento</label>
+    </div>
+  </div>
+</div>
+
+
+<!-- Tarjetas -->
+<div class="container mb-4">
+  <div class="row mt-3 justify-content-center mt-3">
+    <!-- <div class="col-12 text-center mt-5">
+      <i class="fas fa-spinner fa-spin fa-3x"></i>
+      <p class="text-muted">Cargando...</p>
+    </div> -->
+    <!-- <div class="col-12 text-right">
+      <button class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Nuevo</button>
+    </div> -->
+    <div class="card">
+      <div class="card-body">
+        <div class="text-right">
+          <div class="dropdown">
+            <a data-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-ellipsis-h"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item">
+
+                Pagar
+              </a>
+              <a class="dropdown-item">
+
+                Editar
+              </a>
+              <a class="dropdown-item">
+
+                Historial
+              </a>
+            </div>
+          </div>
+        </div>
+        <img src="./assets/img/edesur.png" class="img-fluid" width="150">
+        <h6 class="card-subtitle mb-4 text-muted">Sindicato</h6>
+        <p class="mb-1 card-subtitle text-muted">
+          <i class="fas fa-building"></i> Av. Espora 953
+        </p>
+        <p class="mb-1">
+          <i class="far fa-clock"></i> 25/07/2018</p>
+        <p>
+          <i class="fas fa-dollar-sign"></i> $5000</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="text-right">
+          <i class="fas fa-ellipsis-h"></i>
+        </div>
+        <img src="./assets/img/metrogas.png" class="img-fluid mb-4" width="150">
+        <h6 class="card-subtitle mb-4 text-muted">Sindicato</h6>
+        <p class="mb-1 card-subtitle text-muted">
+          <i class="fas fa-building"></i> Av. Espora 953
+        </p>
+        <p class="mb-1">
+          <i class="far fa-clock"></i> 25/07/2018</p>
+        <p>
+          <i class="fas fa-dollar-sign"></i> $5000</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="text-right">
+          <i class="fas fa-ellipsis-h"></i>
+        </div>
+        <img src="./assets/img/cablevision.png" class="img-fluid mb-3" width="130">
+        <h6 class="card-subtitle mb-4 text-muted">Sindicato</h6>
+        <p class="mb-1 card-subtitle text-muted">
+          <i class="fas fa-building"></i> Av. Espora 953
+        </p>
+        <p class="mb-1">
+          <i class="far fa-clock"></i> 25/07/2018</p>
+        <p>
+          <i class="fas fa-dollar-sign"></i> $5000</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="text-right">
+          <i class="fas fa-ellipsis-h"></i>
+        </div>
+        <img src="./assets/img/movistar.png" class="img-fluid mb-3" width="80">
+        <h6 class="card-subtitle mb-4 text-muted">Sindicato</h6>
+        <p class="mb-1 card-subtitle text-muted">
+          <i class="fas fa-building"></i> Av. Espora 953
+        </p>
+        <p class="mb-1">
+          <i class="far fa-clock"></i> 25/07/2018</p>
+        <p>
+          <i class="fas fa-dollar-sign"></i> $5000</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="text-right">
+          <i class="fas fa-ellipsis-h"></i>
+        </div>
+        <img src="./assets/img/fibercorp.png" class="img-fluid mb-2" width="110">
+        <h6 class="card-subtitle mb-4 text-muted">Sindicato</h6>
+        <p class="mb-1 card-subtitle text-muted">
+          <i class="fas fa-building"></i> Av. Espora 953
+        </p>
+        <p class="mb-1">
+          <i class="far fa-clock"></i> 25/07/2018</p>
+        <p>
+          <i class="fas fa-dollar-sign"></i> $5000</p>
+        <!-- <i class="fas fa-2x fa-caret-down"></i> -->
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="text-right">
+          <div class="dropdown">
+            <a data-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-ellipsis-h"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item">
+                Pagar
+              </a>
+              <a class="dropdown-item">
+                Editar
+              </a>
+              <a class="dropdown-item">
+                Historial
+              </a>
+            </div>
+          </div>
+        </div>
+        <img src="./assets/img/edesur.png" class="img-fluid" width="150">
+        <h6 class="card-subtitle mb-4 text-muted">Sindicato</h6>
+        <p class="mb-1 card-subtitle text-muted">
+          <i class="fas fa-building"></i> Av. Espora 953
+        </p>
+        <p class="mb-1">
+          <i class="far fa-clock"></i> 25/07/2018</p>
+        <p>
+          <i class="fas fa-dollar-sign"></i> $5000</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="text-right">
+          <i class="fas fa-ellipsis-h"></i>
+        </div>
+        <img src="./assets/img/metrogas.png" class="img-fluid mb-4" width="150">
+        <h6 class="card-subtitle mb-4 text-muted">Sindicato</h6>
+        <p class="mb-1 card-subtitle text-muted">
+          <i class="fas fa-building"></i> Av. Espora 953
+        </p>
+        <p class="mb-1">
+          <i class="far fa-clock"></i> 25/07/2018</p>
+        <p>
+          <i class="fas fa-dollar-sign"></i> $5000</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="text-right">
+          <i class="fas fa-ellipsis-h"></i>
+        </div>
+        <img src="./assets/img/cablevision.png" class="img-fluid mb-3" width="130">
+        <h6 class="card-subtitle mb-4 text-muted">Sindicato</h6>
+        <p class="mb-1 card-subtitle text-muted">
+          <i class="fas fa-building"></i> Av. Espora 953
+        </p>
+        <p class="mb-1">
+          <i class="far fa-clock"></i> 25/07/2018</p>
+        <p>
+          <i class="fas fa-dollar-sign"></i> $5000</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="text-right">
+          <i class="fas fa-ellipsis-h"></i>
+        </div>
+        <img src="./assets/img/movistar.png" class="img-fluid mb-3" width="80">
+        <h6 class="card-subtitle mb-4 text-muted">Sindicato</h6>
+        <p class="mb-1 card-subtitle text-muted">
+          <i class="fas fa-building"></i> Av. Espora 953
+        </p>
+        <p class="mb-1">
+          <i class="far fa-clock"></i> 25/07/2018</p>
+        <p>
+          <i class="fas fa-dollar-sign"></i> $5000</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="text-right">
+          <i class="fas fa-ellipsis-h"></i>
+        </div>
+        <img src="./assets/img/fibercorp.png" class="img-fluid mb-2" width="110">
+        <h6 class="card-subtitle mb-4 text-muted">Sindicato</h6>
+        <p class="mb-1 card-subtitle text-muted">
+          <i class="fas fa-building"></i> Av. Espora 953
+        </p>
+        <p class="mb-1">
+          <i class="far fa-clock"></i> 25/07/2018</p>
+        <p>
+          <i class="fas fa-dollar-sign"></i> $5000</p>
+        <!-- <i class="fas fa-2x fa-caret-down"></i> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="btn-fixed fixed-bottom text-right mb-2 mr-2">
+  <i class="fas fa-4x fa-plus-circle"></i>
+</div>

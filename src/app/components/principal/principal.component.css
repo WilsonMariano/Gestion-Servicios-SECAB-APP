@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+.bg{
+    height: 240px;
+    background: url('/assets/img/impuestos.jpg') no-repeat ;
+    background-size: 100% 100%;
+    margin: 0;
+}   
+
+h2, .form-check-label{
+    color: #fff;
+}
+
+h2{
+    font-family: Roboto, Helvetica, sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 4px 4px #000;
+}
+
+.container{
+    max-width: 1300px;
+}
+
+.card{
+    text-align: center;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    background: #f1f1f1;
+    width: 15rem;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+}
+
+.card-body{
+    padding: 10px 20px;
+}
+
+a{
+    cursor: pointer;
+}
+
+.btn-fixed{
+    color: #17a2b8;
+    cursor: pointer;
+}
