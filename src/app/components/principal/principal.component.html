@@ -29,113 +29,13 @@
 <!-- Tarjetas -->
 <div class="container mb-4">
   <div class="row mt-3 justify-content-center mt-3">
-    <!-- <div class="col-12 text-center mt-5">
-      <i class="fas fa-spinner fa-spin fa-3x"></i>
+
+    <div class="col-12 text-center mt-5" *ngIf="arrAuxiliar.length == 0">
+      <i class="fas fa-spinner fa-spin fa-4x mt-5"></i>
       <p class="text-muted">Cargando...</p>
-    </div> -->
-    <!-- <div class="col-12 text-right">
-      <button class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Nuevo</button>
-    </div> -->
-    <div class="card">
-      <div class="card-body">
-        <div class="text-right">
-          <div class="dropdown">
-            <a data-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-ellipsis-h"></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item">
+    </div>
 
-                Pagar
-              </a>
-              <a class="dropdown-item">
-
-                Editar
-              </a>
-              <a class="dropdown-item">
-
-                Historial
-              </a>
-            </div>
-          </div>
-        </div>
-        <img src="./assets/img/edesur.png" class="img-fluid" width="150">
-        <h6 class="card-subtitle mb-4 text-muted">Sindicato</h6>
-        <p class="mb-1 card-subtitle text-muted">
-          <i class="fas fa-building"></i> Av. Espora 953
-        </p>
-        <p class="mb-1">
-          <i class="far fa-clock"></i> 25/07/2018</p>
-        <p>
-          <i class="fas fa-dollar-sign"></i> $5000</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-body">
-        <div class="text-right">
-          <i class="fas fa-ellipsis-h"></i>
-        </div>
-        <img src="./assets/img/metrogas.png" class="img-fluid mb-4" width="150">
-        <h6 class="card-subtitle mb-4 text-muted">Sindicato</h6>
-        <p class="mb-1 card-subtitle text-muted">
-          <i class="fas fa-building"></i> Av. Espora 953
-        </p>
-        <p class="mb-1">
-          <i class="far fa-clock"></i> 25/07/2018</p>
-        <p>
-          <i class="fas fa-dollar-sign"></i> $5000</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-body">
-        <div class="text-right">
-          <i class="fas fa-ellipsis-h"></i>
-        </div>
-        <img src="./assets/img/cablevision.png" class="img-fluid mb-3" width="130">
-        <h6 class="card-subtitle mb-4 text-muted">Sindicato</h6>
-        <p class="mb-1 card-subtitle text-muted">
-          <i class="fas fa-building"></i> Av. Espora 953
-        </p>
-        <p class="mb-1">
-          <i class="far fa-clock"></i> 25/07/2018</p>
-        <p>
-          <i class="fas fa-dollar-sign"></i> $5000</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-body">
-        <div class="text-right">
-          <i class="fas fa-ellipsis-h"></i>
-        </div>
-        <img src="./assets/img/movistar.png" class="img-fluid mb-3" width="80">
-        <h6 class="card-subtitle mb-4 text-muted">Sindicato</h6>
-        <p class="mb-1 card-subtitle text-muted">
-          <i class="fas fa-building"></i> Av. Espora 953
-        </p>
-        <p class="mb-1">
-          <i class="far fa-clock"></i> 25/07/2018</p>
-        <p>
-          <i class="fas fa-dollar-sign"></i> $5000</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-body">
-        <div class="text-right">
-          <i class="fas fa-ellipsis-h"></i>
-        </div>
-        <img src="./assets/img/fibercorp.png" class="img-fluid mb-2" width="110">
-        <h6 class="card-subtitle mb-4 text-muted">Sindicato</h6>
-        <p class="mb-1 card-subtitle text-muted">
-          <i class="fas fa-building"></i> Av. Espora 953
-        </p>
-        <p class="mb-1">
-          <i class="far fa-clock"></i> 25/07/2018</p>
-        <p>
-          <i class="fas fa-dollar-sign"></i> $5000</p>
-        <!-- <i class="fas fa-2x fa-caret-down"></i> -->
-      </div>
-    </div>
-    <div class="card">
+    <div class="card" *ngFor="let f of arrAuxiliar">
       <div class="card-body">
         <div class="text-right">
           <div class="dropdown">
@@ -155,86 +55,19 @@
             </div>
           </div>
         </div>
-        <img src="./assets/img/edesur.png" class="img-fluid" width="150">
-        <h6 class="card-subtitle mb-4 text-muted">Sindicato</h6>
-        <p class="mb-1 card-subtitle text-muted">
-          <i class="fas fa-building"></i> Av. Espora 953
+        <img [src]="arrImgEmpresas[f.empresa].ruta" class="img-fluid" width="150">
+        <p class="mb-1 card-subtitle text-muted mt-2">
+          <i class="fas fa-building"></i> {{f.domicilio}}
         </p>
         <p class="mb-1">
-          <i class="far fa-clock"></i> 25/07/2018</p>
+          <i class="far fa-clock"></i> {{f.proxVencimiento}}</p>
         <p>
-          <i class="fas fa-dollar-sign"></i> $5000</p>
+          <i class="fas fa-dollar-sign"></i> {{f.montoAnterior}}</p>
       </div>
     </div>
-    <div class="card">
-      <div class="card-body">
-        <div class="text-right">
-          <i class="fas fa-ellipsis-h"></i>
-        </div>
-        <img src="./assets/img/metrogas.png" class="img-fluid mb-4" width="150">
-        <h6 class="card-subtitle mb-4 text-muted">Sindicato</h6>
-        <p class="mb-1 card-subtitle text-muted">
-          <i class="fas fa-building"></i> Av. Espora 953
-        </p>
-        <p class="mb-1">
-          <i class="far fa-clock"></i> 25/07/2018</p>
-        <p>
-          <i class="fas fa-dollar-sign"></i> $5000</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-body">
-        <div class="text-right">
-          <i class="fas fa-ellipsis-h"></i>
-        </div>
-        <img src="./assets/img/cablevision.png" class="img-fluid mb-3" width="130">
-        <h6 class="card-subtitle mb-4 text-muted">Sindicato</h6>
-        <p class="mb-1 card-subtitle text-muted">
-          <i class="fas fa-building"></i> Av. Espora 953
-        </p>
-        <p class="mb-1">
-          <i class="far fa-clock"></i> 25/07/2018</p>
-        <p>
-          <i class="fas fa-dollar-sign"></i> $5000</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-body">
-        <div class="text-right">
-          <i class="fas fa-ellipsis-h"></i>
-        </div>
-        <img src="./assets/img/movistar.png" class="img-fluid mb-3" width="80">
-        <h6 class="card-subtitle mb-4 text-muted">Sindicato</h6>
-        <p class="mb-1 card-subtitle text-muted">
-          <i class="fas fa-building"></i> Av. Espora 953
-        </p>
-        <p class="mb-1">
-          <i class="far fa-clock"></i> 25/07/2018</p>
-        <p>
-          <i class="fas fa-dollar-sign"></i> $5000</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-body">
-        <div class="text-right">
-          <i class="fas fa-ellipsis-h"></i>
-        </div>
-        <img src="./assets/img/fibercorp.png" class="img-fluid mb-2" width="110">
-        <h6 class="card-subtitle mb-4 text-muted">Sindicato</h6>
-        <p class="mb-1 card-subtitle text-muted">
-          <i class="fas fa-building"></i> Av. Espora 953
-        </p>
-        <p class="mb-1">
-          <i class="far fa-clock"></i> 25/07/2018</p>
-        <p>
-          <i class="fas fa-dollar-sign"></i> $5000</p>
-        <!-- <i class="fas fa-2x fa-caret-down"></i> -->
-      </div>
-    </div>
-  </div>
-</div>
 
+    <div class="btn-fixed fixed-bottom text-right mb-3 mr-3">
+      <i class="fas fa-4x fa-plus-circle" data-toggle="modal" data-target="#modalServicio"></i>
+    </div>
 
-<div class="btn-fixed fixed-bottom text-right mb-2 mr-2">
-  <i class="fas fa-4x fa-plus-circle"></i>
-</div>
+    <app-modal-servicio (onSuccess)="traerFacturas()"></app-modal-servicio>

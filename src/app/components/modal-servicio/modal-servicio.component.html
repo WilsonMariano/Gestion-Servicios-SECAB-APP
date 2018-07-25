@@ -1,0 +1,46 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" id="modalServicio" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form [formGroup]="forma" (ngSubmit)="onSubmit()">
+        <div class="modal-body">
+            <div class="form-group">
+                <label>Servicio</label>
+                <select class="form-control" formControlName="empresa">
+                  <option value="">Seleccione una opción</option>
+                  <option>Edesur</option>
+                  <option>Cablevisión</option>
+                  <option>Metrogas</option>
+                </select>
+                <span class="invalid" *ngIf="forma.get('empresa').errors?.required && forma.get('empresa').touched">*El campo es requerido</span>
+              </div>
+          <div class="form-group">
+            <label for="domicilio" class="col-form-label">Domicilio</label>
+            <input type="text" class="form-control" id="domicilio" placeholder="Nombre de la oficina" formControlName="domicilio">
+            <span class="invalid" *ngIf="forma.get('domicilio').errors?.required && forma.get('domicilio').touched">*El campo es requerido</span>
+          </div>
+          <div class="form-group">
+            <label for="vencimiento" class="col-form-label">Vencimiento aproximado</label>
+            <input type="date" class="form-control" id="vencimiento" placeholder="Número directo" formControlName="proxVencimiento">
+            <span class="invalid" *ngIf="forma.get('proxVencimiento').errors?.required && forma.get('proxVencimiento').touched">*El campo es requerido</span>
+          </div>
+          <div class="form-group">
+            <label for="monto" class="col-form-label">Monto anterior</label>
+            <input type="text" class="form-control" id="monto" placeholder="Número directo" formControlName="montoAnterior">
+            <span class="invalid" *ngIf="forma.get('montoAnterior').errors?.required && forma.get('montoAnterior').touched">*El campo es requerido</span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" [disabled]="forma.invalid">Guardar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
