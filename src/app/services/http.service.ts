@@ -26,4 +26,30 @@ export class HttpService {
       map(data => data.json())
     )
   }
+
+  public insertarUno(entidad: string, objeto)
+  {
+    return this.http.post
+    (
+      environment.rutaApi + entidad +"/insertar",
+      objeto,
+      { headers: this.headers }
+    )
+    .pipe(
+      map(data => data.json())
+    )
+  }
+
+  public editarUno(entidad: string, objeto)
+  {
+    return this.http.post
+    (
+      environment.rutaApi + entidad +"/editar",
+      objeto,
+      { headers: this.headers }
+    )
+    .pipe(
+      map(data => data.json())
+    )
+  }
 }

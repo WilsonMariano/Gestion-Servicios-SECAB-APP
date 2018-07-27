@@ -37,8 +37,17 @@ h2{
     box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
 }
 
+.por-vencer{
+    background: #ffc8cd;
+}
+
 .card-body{
     padding: 10px 20px;
+}
+
+.img-fluid{
+    width:150px;
+    height: 60px;
 }
 
 a{

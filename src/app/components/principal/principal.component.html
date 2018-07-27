@@ -3,7 +3,7 @@
   <div class="col-md-5 col-sm-12 offset-sm-4">
     <h2 class="text-center mb-5">¿Qué servicio querés buscar?</h2>
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Comience a escribir un nombre, apellido, oficina o piso..." (keyup)="onKeyPress()">
+      <input type="text" class="form-control" placeholder="Comience a escribir un nombre, apellido, oficina o piso..." [(ngModel)]="cadenaBuscar" (keyup)="onKeyPress()">
       <div class="input-group-prepend">
         <div class="input-group-text" id="btnGroupAddon2">
           <i class="fas fa-search"></i>
@@ -11,16 +11,16 @@
       </div>
     </div>
     <div class="form-check form-check-inline mt-3">
-      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="nombre">
-      <label class="form-check-label" for="inlineRadio1">Empresa</label>
+      <input class="form-check-input" type="radio" name="filtro" id="empresa" [(ngModel)]="criterioBusqueda" value="empresa">
+      <label class="form-check-label" for="empresa">Empresa</label>
     </div>
     <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="oficina">
-      <label class="form-check-label" for="inlineRadio2">Dirección</label>
+      <input class="form-check-input" type="radio" name="filtro" id="ublicacion" [(ngModel)]="criterioBusqueda" value="ubicacion">
+      <label class="form-check-label" for="ublicacion">Ubicación</label>
     </div>
     <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="piso">
-      <label class="form-check-label" for="inlineRadio3">Vencimiento</label>
+      <input class="form-check-input" type="radio" name="filtro" id="vencimiento"[(ngModel)]="criterioBusqueda" value="vencimiento">
+      <label class="form-check-label" for="vencimiento">Vencimiento</label>
     </div>
   </div>
 </div>
@@ -35,7 +35,7 @@
       <p class="text-muted">Cargando...</p>
     </div>
 
-    <div class="card" *ngFor="let f of arrAuxiliar">
+    <div class="card" *ngFor="let f of arrAuxiliar" [ngClass]="{'por-vencer': calcularDifFechas(f.proxVencimiento)<5}">
       <div class="card-body">
         <div class="text-right">
           <div class="dropdown">
@@ -46,7 +46,7 @@
               <a class="dropdown-item">
                 Pagar
               </a>
-              <a class="dropdown-item">
+              <a class="dropdown-item" data-toggle="modal" data-target="#modalServicio" (click)="objetoEditar = f">
                 Editar
               </a>
               <a class="dropdown-item">
@@ -55,19 +55,20 @@
             </div>
           </div>
         </div>
-        <img [src]="arrImgEmpresas[f.empresa].ruta" class="img-fluid" width="150">
+
+        <img [src]="f.rutaImagen" class="img-fluid mb-3">
         <p class="mb-1 card-subtitle text-muted mt-2">
           <i class="fas fa-building"></i> {{f.domicilio}}
         </p>
         <p class="mb-1">
-          <i class="far fa-clock"></i> {{f.proxVencimiento}}</p>
+          <i class="far fa-clock"></i> {{f.proxVencimiento | date: 'dd/MM/yyyy'}}</p>
         <p>
           <i class="fas fa-dollar-sign"></i> {{f.montoAnterior}}</p>
       </div>
     </div>
 
     <div class="btn-fixed fixed-bottom text-right mb-3 mr-3">
-      <i class="fas fa-4x fa-plus-circle" data-toggle="modal" data-target="#modalServicio"></i>
+      <i class="fas fa-4x fa-plus-circle" data-toggle="modal" data-target="#modalServicio" (click)="objetoEditar = null"></i>
     </div>
 
-    <app-modal-servicio (onSuccess)="traerFacturas()"></app-modal-servicio>
+    <app-modal-servicio (onSuccess)="traerFacturas()" [objetoEditar]="objetoEditar"></app-modal-servicio>
