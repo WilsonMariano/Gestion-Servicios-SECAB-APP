@@ -14,13 +14,24 @@ export class HttpService {
   {
     this.headers = new Headers();
     this.headers.append('Content-Type', 'application/json');
-  
+  }
+
+  public traer(entidad: string, id: number)
+  {
+    return this.http.get(
+      environment.rutaApi + entidad +'/traer/'+ id.toString(), 
+      {headers: this.headers}
+    )
+    .pipe(
+      map(data => data.json())
+    )
   }
 
   public traerTodo(entidad: string)
   {
     return this.http.get(
-      environment.rutaApi + entidad +'/traer-todo', {headers: this.headers}
+      environment.rutaApi + entidad +'/traer-todo', 
+      {headers: this.headers}
     )
     .pipe(
       map(data => data.json())

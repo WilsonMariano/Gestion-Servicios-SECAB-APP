@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
 import { HttpService } from '../../services/http.service';
 import * as moment from 'moment';
 
@@ -12,11 +13,16 @@ export class PrincipalComponent implements OnInit {
   private arrFacturas = [];
   public arrAuxiliar = [];
   public objetoEditar = null;
+  public objetoPagar = null;
+  public objetoHistorial = null;
 
   public criterioBusqueda = 'empresa';
   public cadenaBuscar;
 
-  constructor(private httpService: HttpService) 
+  constructor(
+    private httpService: HttpService,
+    private router: Router
+  ) 
   { }
 
   ngOnInit() {
@@ -75,4 +81,10 @@ export class PrincipalComponent implements OnInit {
 
     }
   }
+
+  public navegarHistorial(factura)
+  {
+    this.router.navigate(['/historial',{'idFactura': factura.idFactura}]);
+  }
+
 }

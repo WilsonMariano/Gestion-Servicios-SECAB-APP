@@ -1,0 +1,41 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" id="modalPagarServicio" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Pagar servicio</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="col-12 text-center mt-4">
+        <img [src]="forma.get('rutaImagen').value" alt="" class="img-fluid img-servicio">
+        <p class="text-muted">({{forma.get('vencActual').value | date: 'dd/MM/yyyy'}} )</p>
+      </div>
+
+      <form [formGroup]="forma" (ngSubmit)="onSubmit()">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="domicilio" class="col-form-label">Fecha de pago</label>
+            <input type="date" class="form-control" id="fechaPago" placeholder="Fecha de pago" formControlName="fechaPago">
+            <span class="invalid" *ngIf="forma.get('fechaPago').errors?.required && forma.get('fechaPago').touched">*El campo es requerido</span>
+          </div>
+          <div class="form-group">
+            <label for="monto" class="col-form-label">Monto pagado</label>
+            <input type="text" class="form-control" id="monto" placeholder="Monto" formControlName="montoPagado">
+            <span class="invalid" *ngIf="forma.get('montoPagado').errors?.required && forma.get('montoPagado').touched">*El campo es requerido</span>
+          </div>
+          <div class="form-group">
+            <label for="vencimiento" class="col-form-label">Vencimiento aproximado</label>
+            <input type="date" class="form-control" id="vencimiento" placeholder="Número directo" formControlName="proxVencimiento">
+            <span class="invalid" *ngIf="forma.get('proxVencimiento').errors?.required && forma.get('proxVencimiento').touched">*El campo es requerido</span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" [disabled]="forma.invalid">Guardar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

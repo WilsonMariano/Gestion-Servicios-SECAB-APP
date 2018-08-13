@@ -43,27 +43,27 @@
               <i class="fas fa-ellipsis-h"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item">
+              <a class="dropdown-item" data-toggle="modal" data-target="#modalPagarServicio" (click)="objetoPagar = f">
                 Pagar
               </a>
               <a class="dropdown-item" data-toggle="modal" data-target="#modalServicio" (click)="objetoEditar = f">
                 Editar
               </a>
-              <a class="dropdown-item">
+              <a class="dropdown-item" (click)="navegarHistorial(f)">
                 Historial
               </a>
             </div>
           </div>
         </div>
 
-        <img [src]="f.rutaImagen" class="img-fluid mb-3">
+        <img [src]="f.rutaImagen" class="img-fluid img-servicio mb-3">
         <p class="mb-1 card-subtitle text-muted mt-2">
           <i class="fas fa-building"></i> {{f.domicilio}}
         </p>
         <p class="mb-1">
           <i class="far fa-clock"></i> {{f.proxVencimiento | date: 'dd/MM/yyyy'}}</p>
         <p>
-          <i class="fas fa-dollar-sign"></i> {{f.montoAnterior}}</p>
+          <!-- <i class="fas fa-dollar-sign"></i> {{f.montoAnterior}}</p> -->
       </div>
     </div>
 
@@ -72,3 +72,4 @@
     </div>
 
     <app-modal-servicio (onSuccess)="traerFacturas()" [objetoEditar]="objetoEditar"></app-modal-servicio>
+    <app-modal-pagar-servicio [objetoPagar]="objetoPagar"></app-modal-pagar-servicio>
