@@ -53,6 +53,8 @@ export class HttpService {
 
   public editarUno(entidad: string, objeto)
   {
+    console.log(entidad);
+    console.log(objeto);
     return this.http.post
     (
       environment.rutaApi + entidad +"/editar",

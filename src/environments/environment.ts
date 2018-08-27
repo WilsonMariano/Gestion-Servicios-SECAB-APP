@@ -3,9 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   // rutaApi: 'http://localhost:8080/apiServicios/index.php/'
-  rutaApi: 'http://192.168.0.8:8080/apiServicios/index.php/'
+  rutaApi: 'http://192.168.0.8:8080/apiServicios/index.php/',
+  rutaImg: './servicios/assets/img/',
+  // rutaImg: './assets/img/',
 };
 
 /*

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute  } from '@angular/router';
 import { HttpService } from '../../services/http.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-listado-pagos',
@@ -9,6 +10,7 @@ import { HttpService } from '../../services/http.service';
 })
 export class ListadoPagosComponent implements OnInit {
 
+  public rutaImg = environment.rutaImg;
   private idServicio: number;
   public arrFacturas = [];
 
@@ -26,8 +28,8 @@ export class ListadoPagosComponent implements OnInit {
     this.activateRoute.params.subscribe(
       data =>{
         this.idServicio = data['id'];
-        // console.log(data);
         this.traerFacturas();
+
       }
     )
   }
@@ -37,7 +39,8 @@ export class ListadoPagosComponent implements OnInit {
     this.httpService.traer('factura-paga', this.idServicio).subscribe(
       data =>{
         this.arrFacturas = data;
-        console.log(this.arrFacturas);
+        this.rutaImg += data[0].rutaImagen;
+        // console.log(data);
       }
     )
   }

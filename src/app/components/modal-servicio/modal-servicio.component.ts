@@ -70,7 +70,7 @@ export class ModalServicioComponent implements OnInit {
         'domicilio': this.forma.get('domicilio').value,
         'proxVencimiento': this.forma.get('proxVencimiento').value,
         'montoAnterior': this.forma.get('montoAnterior').value,
-        'id': this.objetoEditar.id
+        'id': this.objetoEditar.idFactura
       }
 
       this.httpService.editarUno('factura', unaFactura).subscribe(

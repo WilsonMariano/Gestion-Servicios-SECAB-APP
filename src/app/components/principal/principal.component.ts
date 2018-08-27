@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import { HttpService } from '../../services/http.service';
 import * as moment from 'moment';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-principal',
@@ -10,6 +11,7 @@ import * as moment from 'moment';
 })
 export class PrincipalComponent implements OnInit {
 
+  public rutaImg = environment.rutaImg;
   private arrFacturas = [];
   public arrAuxiliar = [];
   public objetoEditar = null;
@@ -84,7 +86,12 @@ export class PrincipalComponent implements OnInit {
 
   public navegarHistorial(factura)
   {
-    this.router.navigate(['/historial',{'idFactura': factura.idFactura}]);
+    this.router.navigate(['/historial/',factura.idFactura]);
+    // console.log(factura);
   }
 
+  public test(f)
+  {
+    console.log(f);
+  }
 }

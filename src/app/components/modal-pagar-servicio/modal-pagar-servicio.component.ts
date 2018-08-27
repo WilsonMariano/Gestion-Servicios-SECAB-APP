@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 // import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from '../../services/http.service';
@@ -11,6 +11,7 @@ declare var $;
 })
 export class ModalPagarServicioComponent implements OnInit{
 
+  @Output() onSuccess = new EventEmitter();
   @Input() objetoPagar;
 
   public forma = new FormGroup({
@@ -51,7 +52,10 @@ export class ModalPagarServicioComponent implements OnInit{
       }
     ).subscribe(data=>
     {
-      console.log(data);
+      this.onSuccess.emit();
+      this.forma.reset();
+      $('#modalPagarServicio').modal('hide');
+      console.log("pagado");
     });
   }
 
