@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute  } from '@angular/router';
 import { HttpService } from '../../services/http.service';
 import { environment } from '../../../environments/environment';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-listado-pagos',
@@ -16,9 +17,11 @@ export class ListadoPagosComponent implements OnInit {
 
   constructor(
     private activateRoute: ActivatedRoute,
-    private httpService: HttpService) { }
+    private httpService: HttpService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    this.spinner.show();
     this.recibirParametro();
   }
 
@@ -40,8 +43,11 @@ export class ListadoPagosComponent implements OnInit {
       data =>{
         this.arrFacturas = data;
         this.rutaImg += data[0].rutaImagen;
-        // console.log(data);
-      }
+        setTimeout(() =>  this.spinner.hide(), 500);
+        console.log(data);
+      },
+      err => setTimeout(() =>  this.spinner.hide(), 500);
+
     )
   }
 

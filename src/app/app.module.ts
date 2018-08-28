@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { ROUTING } from './rutas.route';
 
@@ -26,7 +27,8 @@ import { ListadoPagosComponent } from './components/listado-pagos/listado-pagos.
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    ROUTING
+    ROUTING,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
