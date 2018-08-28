@@ -46,7 +46,7 @@ export class ListadoPagosComponent implements OnInit {
         setTimeout(() =>  this.spinner.hide(), 500);
         console.log(data);
       },
-      err => setTimeout(() =>  this.spinner.hide(), 500);
+      err => setTimeout(() =>  this.spinner.hide(), 500)
 
     )
   }
