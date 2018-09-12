@@ -19,7 +19,7 @@ export class ModalServicioComponent implements OnInit {
     'idEmpresa': new FormControl('', Validators.required),
     'domicilio': new FormControl('', Validators.required),
     'proxVencimiento': new FormControl('', Validators.required),
-    'montoAnterior': new FormControl('', Validators.required)
+    'datosCuenta': new FormControl('') 
   });
 
   constructor(private httpService: HttpService) { }
@@ -36,7 +36,7 @@ export class ModalServicioComponent implements OnInit {
       this.forma.get('idEmpresa').setValue(this.objetoEditar.idEmpresa);
       this.forma.get('domicilio').setValue(this.objetoEditar.domicilio);
       this.forma.get('proxVencimiento').setValue(this.objetoEditar.proxVencimiento);
-      this.forma.get('montoAnterior').setValue(this.objetoEditar.montoAnterior);
+      this.forma.get('datosCuenta').setValue(this.objetoEditar.datosCuenta);
     }
 
     else
@@ -52,7 +52,7 @@ export class ModalServicioComponent implements OnInit {
         'idEmpresa': this.forma.get('idEmpresa').value,
         'domicilio': this.forma.get('domicilio').value,
         'proxVencimiento': this.forma.get('proxVencimiento').value,
-        'montoAnterior': this.forma.get('montoAnterior').value
+        'datosCuenta': this.forma.get('datosCuenta').value
       }
 
       this.httpService.insertarUno('factura', unaFactura).subscribe(
@@ -69,7 +69,7 @@ export class ModalServicioComponent implements OnInit {
         'idEmpresa': this.forma.get('idEmpresa').value,
         'domicilio': this.forma.get('domicilio').value,
         'proxVencimiento': this.forma.get('proxVencimiento').value,
-        'montoAnterior': this.forma.get('montoAnterior').value,
+        'datosCuenta': this.forma.get('datosCuenta').value,
         'id': this.objetoEditar.idFactura
       }
 

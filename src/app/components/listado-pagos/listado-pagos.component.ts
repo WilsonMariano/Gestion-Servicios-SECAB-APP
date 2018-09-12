@@ -14,6 +14,7 @@ export class ListadoPagosComponent implements OnInit {
   public rutaImg = environment.rutaImg;
   private idServicio: number;
   public arrFacturas = [];
+  public servicio;
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -23,6 +24,7 @@ export class ListadoPagosComponent implements OnInit {
   ngOnInit() {
     this.spinner.show();
     this.recibirParametro();
+    this.traerDatosServicio();
   }
 
 
@@ -42,12 +44,23 @@ export class ListadoPagosComponent implements OnInit {
     this.httpService.traer('factura-paga', this.idServicio).subscribe(
       data =>{
         this.arrFacturas = data;
-        this.rutaImg += data[0].rutaImagen;
         setTimeout(() =>  this.spinner.hide(), 500);
-        console.log(data);
-      },
+      }
+      ,
       err => setTimeout(() =>  this.spinner.hide(), 500)
 
+    )
+  }
+
+  private traerDatosServicio()
+  {
+    this.httpService.traer('factura', this.idServicio).subscribe(
+      data =>
+      {
+        this.servicio = data[0];
+        this.rutaImg += this.servicio.rutaImagen;
+        console.log(data);
+      }
     )
   }
 

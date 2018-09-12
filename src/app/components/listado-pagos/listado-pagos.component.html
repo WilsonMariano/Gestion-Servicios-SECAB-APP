@@ -2,21 +2,24 @@
   <!-- <div *ngIf="arrFacturas.length != 0"> -->
       <div class="row mt-5">
           <div class="col-6">
-              <img [src]="rutaImg" class="img-fluid" width="300">
+              <img *ngIf="servicio" [src]="rutaImg" class="img-fluid" width="300">
           </div>
           <div class="col-3 offset-md-3">
-              <div class="card p-2">
+              <div *ngIf="servicio" class="card p-2">
                   <div class="card-header text-center">
                       <h5>Información</h5>
                     </div>
-                  <p><i class="fas fa-building mt-2"></i> {{arrFacturas[0].domicilio}}</p>
-                  <p><i class="far fa-calendar-alt"></i> {{arrFacturas[0].proxVencimiento | date: 'dd/MM/yyyy'}}</p>
+                  <p><i class="fas fa-building mt-2"></i> {{servicio.domicilio}}</p>
+                  <p><i class="fas fa-info-circle"></i> {{servicio.datosCuenta}}</p>
               </div>
           </div>
         </div>
         <div class="row">
           <div class="col-12">
-              <table class="table table-responsive-lg table-hover table-striped table-bordered mt-5">
+            <div *ngIf="arrFacturas.length == 0" class="alert alert-primary mt-5">
+                <i class="fas fa-exclamation-triangle"></i> No se ha registrado ningún pago aún
+            </div>
+              <table *ngIf="arrFacturas.length != 0" class="table table-responsive-lg table-hover table-striped table-bordered mt-5">
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">#</th>
