@@ -4,6 +4,8 @@ import { HttpService } from '../../services/http.service';
 import * as moment from 'moment';
 import { environment } from '../../../environments/environment';
 
+declare var $;
+
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.component.html',
@@ -93,5 +95,13 @@ export class PrincipalComponent implements OnInit {
   public test(f)
   {
     console.log(f);
+  }
+
+
+
+  public splitDescripcion(index: number){
+    let arr = this.arrFacturas[index].datosCuenta.split('/');
+    console.log(arr);
+    return arr;
   }
 }
