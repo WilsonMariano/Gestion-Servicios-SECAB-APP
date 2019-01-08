@@ -6,7 +6,7 @@ import { ListadoPagosComponent } from './components/listado-pagos/listado-pagos.
 const APP_ROUTES: Routes = 
 [
     { 
-        path: 'principal', 
+        path: 'servicios', 
         component: PrincipalComponent 
     },
     { 
@@ -17,8 +17,8 @@ const APP_ROUTES: Routes =
     { 
         path: '**', 
         pathMatch: 'full', 
-        redirectTo: 'principal' 
+        redirectTo: 'servicios' 
     }
 ];
 
-export const ROUTING = RouterModule.forRoot(APP_ROUTES, {'useHash': true});
+export const ROUTING = RouterModule.forRoot(APP_ROUTES);
